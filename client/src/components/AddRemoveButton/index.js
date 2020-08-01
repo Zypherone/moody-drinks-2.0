@@ -19,8 +19,9 @@ function AddRemoveButton(props) {
     let res = []
 
     db.once('value').then(function(snapshot) {
-      res = snapshot.val()
-      return Object.values(res).map((recipe) => recipe)
+      res = snapshot.val() ? snapshot.val() : []
+      if(Object.values(res).length)
+        return Object.values(res).map((recipe) => recipe)
     })
     .then((results) => 
       _.findKey(results, { id: drinkId })
@@ -30,6 +31,28 @@ function AddRemoveButton(props) {
         setIsSaved('secondary')
       }
     })
+
+  
+  }, [isSaved])
+
+  useEffect(() => {
+
+    // const db = app.database().ref().child('v/2/favs/' + user.uid)
+    // let res = []
+
+    // db.once('value').then(function(snapshot) {
+    //   res = snapshot.val() ? snapshot.val() : []
+    //   if(!Object.values(res).length)
+    //     return Object.values(res).map((recipe) => recipe)
+    // })
+    // .then((results) => 
+    //   _.findKey(results, { id: drinkId })
+    // )
+    // .then((results) => {
+    //   if (results) {
+    //     setIsSaved('secondary')
+    //   }
+    // })
   
     if (isLoading) {
       const recipe = {}
@@ -42,8 +65,9 @@ function AddRemoveButton(props) {
         let res = []
 
         db.once('value').then(function(snapshot) {
-          res = snapshot.val()
-          return Object.values(res).map((recipe) => recipe)
+          res = snapshot.val() ? snapshot.val() : []
+          if(!Object.values(res).length)
+            return Object.values(res).map((recipe) => recipe)
         })
         .then((results) => 
           _.findKey(results, { id: drinkId })
@@ -68,7 +92,7 @@ function AddRemoveButton(props) {
 
     //isSaved
 
-  }, [isLoading, isSaved]);
+  }, [isLoading]);
 
   const handleClick = () => setLoading(true);
 

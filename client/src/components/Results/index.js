@@ -39,6 +39,7 @@ const Results = (props) => {
 
   const { pagename, recipeId } = useParams();
   const [results, setResults] = useState([])
+  const [loader, setLoader] = useState(true);
   const { currentUser: user } = useContext(AuthContext)
 
   const getResults = () => {
@@ -84,11 +85,18 @@ const Results = (props) => {
 
         const db = app.database().ref().child('v/2/favs/' + user.uid)
         db.once('value').then(function(snapshot) {
-          let res = snapshot.val()
-          let results = Object.values(res).map((recipe) => {
-            return recipe
-          })
-          setResults(results)
+          let res = snapshot.val() ? snapshot.val() : []
+          console.log(Object.values(res).length)
+          if (Object.values(res).length) {
+            let results = Object.values(res).map((recipe) => {
+              return recipe
+            })
+            setResults(results)
+          }
+
+          setTimeout(() => {
+            setLoader(false)
+          }, 5000)
         })
 
         break;
@@ -111,30 +119,15 @@ const Results = (props) => {
           )
         })
       ) : (
-        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        loader ? (
+          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        ) : (
+          <>
+            No results
+          </>
+        )
       )}
     </>
-    // <Container as="Main">
-    //   <h2>Search Results</h2>
-    //   {(props.results.length !== 0) ? (
-    //     props.results.map((book) => {
-    //       return (
-    //         <Book
-    //           key={book.id}
-    //           id={book.id}
-    //           image={book.image}
-    //           title={book.title}
-    //           author={book.authors}
-    //           description={book.description}
-    //           link={book.link}
-    //           saveBook={props.saveBook}
-    //         />
-    //       )
-    //     })
-    //   ) : (
-    //     <p>No Results</p>
-    //   )}
-    // </Container>
   );
 };
 

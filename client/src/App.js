@@ -6,7 +6,7 @@ import 'App.css'
 
 //import Content from "pages/Content";
 import Login from "pages/Login";
-import SignUp from "pages/SignUp";
+import Register from "pages/Register";
 import AppContent from 'pages/AppContent';
 
 //import Dummy from 'pages/Dummy'
@@ -15,8 +15,8 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />  
         <PrivateRoute path="*" component={AppContent} />
       </Router>
     </AuthProvider>

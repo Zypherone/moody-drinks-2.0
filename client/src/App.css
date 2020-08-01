@@ -1,4 +1,6 @@
-#Landing {
+#Landing,
+#login,
+#register {
   display: flex; 
   flex-grow: 1;
   height: 100% !important

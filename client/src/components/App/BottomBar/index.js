@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useParams, useLocation } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -23,10 +23,16 @@ const useStyles = makeStyles((theme) => ({
 export default function AppBottomBar(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const { pagename, recipeId } = useParams();
+  
   const location = useLocation()
 
   //console.log(location)
+
+  useEffect(() => {
+    
+    if (location.pathname == '/favs')
+      setValue(1)
+  })
 
   return (
     
@@ -41,7 +47,7 @@ export default function AppBottomBar(props) {
       >
         <BottomNavigationAction label="Home" icon={<AppsIcon />} component={Link} to="/" />
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} component={Link} to="/favs" />
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} to="/recents" />
+        {/* <BottomNavigationAction label="Recents" icon={<RestoreIcon />} to="/recents" /> */}
       </BottomNavigation>
     
   );

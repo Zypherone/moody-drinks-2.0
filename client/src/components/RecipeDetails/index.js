@@ -102,9 +102,9 @@ const RecipeDetails = (props) => {
       />
       <CardActions disableSpacing>
         <AddRemoveButton id={id} typeOfButton={typeOfButton}  />
-        <IconButton aria-label="share">
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

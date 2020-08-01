@@ -1,5 +1,6 @@
-import React, { useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
+import React, { useCallback } from "react";
+import { withRouter } from "react-router";
+
 import { Button, TextField, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -33,46 +34,33 @@ const useStyles = makeStyles((theme) => ({
   },
   Button: {
     padding: '40px'
-  },
-  Link: {
-
   }
 }));
 
-const Login = ({ history }) => {
+const SignUp = ({ history }) => {
+  
   const classes = useStyles();
- // const [ message, setMessage ] = useState('')
 
-   //   open: false
+  const handleSignUp = useCallback(async event => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    try {
+      await app
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value);
+      history.push("/");
+    } catch (error) {
+      alert(error);
+    }
+  }, [history]);
 
-  const handleLogin = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        alert(error);
-      }
-    },
-    [history]
-  );
-
-  const { currentUser } = useContext(AuthContext);
-
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <div className={classes.App}>
       <header className={classes.AppHeader}>
-        <form className={classes.Login} noValidate autoComplete="off" onSubmit={handleLogin}>
+        <form className={classes.Login} noValidate autoComplete="off" onSubmit={handleSignUp}>
           <Typography variant="subtitle1" color="textPrimary">
-            Login
+            Register
           </Typography>
           <TextField
             variant="standard"
@@ -102,7 +90,7 @@ const Login = ({ history }) => {
           </div>
           <div className={classes.register}>
             <Typography variant="caption" color="textPrimary">
-              Don't have an account, <Link href="/register" component={Link}>register now</Link>!
+              Already have an account, <Link href="/login" component={Link}>login now</Link>!
             </Typography>
           </div>
         </form>
@@ -110,6 +98,22 @@ const Login = ({ history }) => {
     </div>
   );  
 
+  // return (
+  //   <div>
+  //     <h1>Sign up</h1>
+  //     <form onSubmit={handleSignUp}>
+  //       <label>
+  //         Email
+  //         <input name="email" type="email" placeholder="Email" />
+  //       </label>
+  //       <label>
+  //         Password
+  //         <input name="password" type="password" placeholder="Password" />
+  //       </label>
+  //       <button type="submit">Sign Up</button>
+  //     </form>
+  //   </div>
+  // );
 };
 
-export default withRouter(Login);
+export default withRouter(SignUp);
