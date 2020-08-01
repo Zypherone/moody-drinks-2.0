@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const dirnksController = require("../../controllers/drinks");
+const router = require('express').Router()
+const dirnksController = require('../../controllers/drinks')
 
 // // Matches with "/api/books"
 // router.route("/")
@@ -8,7 +8,7 @@ const dirnksController = require("../../controllers/drinks");
 
 // Matches with "/api/books/:id"
 router
-.route("/:type")
-.get(dirnksController.findByType)
+  .route('/:type')
+  .get(dirnksController.findByType)
 
-module.exports = router;
+module.exports = router

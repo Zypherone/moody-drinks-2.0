@@ -1,11 +1,11 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import { Container } from '@material-ui/core';
+import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Typography from '@material-ui/core/Typography'
+import { Container } from '@material-ui/core'
 
-export default function PersistentDrawerRight() {
+export default function PersistentDrawerRight () {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth='sm'>
       <CssBaseline />
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -31,5 +31,5 @@ export default function PersistentDrawerRight() {
         accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
       </Typography>
     </Container>
-  );
+  )
 }

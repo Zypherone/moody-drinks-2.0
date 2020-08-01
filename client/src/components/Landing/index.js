@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { AuthContext } from "components/_Auth";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+import GridList from '@material-ui/core/GridList'
+import GridListTile from '@material-ui/core/GridListTile'
+import GridListTileBar from '@material-ui/core/GridListTileBar'
+import IconButton from '@material-ui/core/IconButton'
+import StarBorderIcon from '@material-ui/icons/StarBorder'
+import { AuthContext } from 'components/_Auth'
 import app from 'components/_Firebase'
 
 const useStyles = makeStyles((theme) => ({
@@ -32,17 +32,16 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '100%'
   },
   title: {
-    color: theme.palette.warning.light,
+    color: theme.palette.warning.light
   },
   titleBar: {
     background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
-}));
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
+  }
+}))
 
 const Landing = () => {
-
-  const classes = useStyles();
+  const classes = useStyles()
 
   const tileData = [
     {
@@ -64,7 +63,7 @@ const Landing = () => {
       img: 'assets/mood-3-easy.jpg',
       title: 'Easy option',
       to: '/easy'
-    },
+    },  
     {
       img: 'assets/mood-4-safe.jpg',
       title: 'Feeling safe',
@@ -82,25 +81,20 @@ const Landing = () => {
       <GridList className={classes.gridList} cols={1}>
         {tileData.map((tile) => {
           return (
-          <GridListTile key={tile.img} to={tile.to} component={Link} className={classes.gridListTile}>  
-            <GridListTileBar
-              title={tile.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              // actionIcon={
-              //   <IconButton aria-label={`star ${tile.title}`}>
-              //     <StarBorderIcon className={classes.title} />
-              //   </IconButton>
-              // }
-            />
-          </GridListTile>
+            <GridListTile key={tile.img} to={tile.to} component={Link} className={classes.gridListTile}>
+              <GridListTileBar
+                title={tile.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title
+                }}
+              />
+            </GridListTile>
           )
         })}
       </GridList>
     </div>
-  );
+  )
 }
 
 export default Landing
