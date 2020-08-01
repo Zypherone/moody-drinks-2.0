@@ -1,20 +1,20 @@
-[contributors-shield]: https://img.shields.io/github/contributors/Zypherone/21-google-book-search.svg?style=flat-square
-[contributors-url]: https://github.com/Zypherone/21-google-book-search/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Zypherone/21-google-book-search.svg?style=flat-square
-[forks-url]: https://github.com/Zypherone/21-google-book-search/network/members
-[stars-shield]: https://img.shields.io/github/stars/Zypherone/21-google-book-search.svg?style=flat-square
-[stars-url]: https://github.com/Zypherone/21-google-book-search/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Zypherone/21-google-book-search.svg?style=flat-square
-[issues-url]: https://github.com/Zypherone/21-google-book-search/issues
+[contributors-shield]: https://img.shields.io/github/contributors/Zypherone/moody-drinks-2.0.svg?style=flat-square
+[contributors-url]: https://github.com/Zypherone/moody-drinks-2.0/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Zypherone/moody-drinks-2.0.svg?style=flat-square
+[forks-url]: https://github.com/Zypherone/moody-drinks-2.0/network/members
+[stars-shield]: https://img.shields.io/github/stars/Zypherone/moody-drinks-2.0.svg?style=flat-square
+[stars-url]: https://github.com/Zypherone/moody-drinks-2.0/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Zypherone/moody-drinks-2.0.svg?style=flat-square
+[issues-url]: https://github.com/Zypherone/moody-drinks-2.0/issues
 [build-style-shield]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
 [build-style-url]: https://github.com/feross/standard
-[license-shield]: https://img.shields.io/github/license/Zypherone/21-google-book-search.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/Zypherone/moody-drinks-2.0.svg?style=flat-square
 [license-url]: http://choosealicense.com/licenses/mit/
 
 [![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![JS Standard][build-style-shield]][build-style-url] [![MIT License][license-shield]][license-url]
 
-# Unit 21 React/MERN Homework: Google Book Search
-A React-based Google Books Search app. This assignment requires you to create React components, work with helper/util functions, and utilize React lifecycle methods to query and display books based on user searches. You'll also use Node, Express and MongoDB so that users can save books to review or purchase later.
+# Moody Drinks v2
+Moody Drinks is an app to recommend drinks depending on the user's current mood. Build using Firebase, React, Express and Node.Js.
 
 #### Table of Contents
 - [Screenshots](#Screenshots)
@@ -36,13 +36,14 @@ A React-based Google Books Search app. This assignment requires you to create Re
 
 ## Demo
 
-Click http://book-search.danutuckersaunders.name/ to visit a live demo.
+Click http://moody-drinks.danutuckersaunders.name/ to visit a live demo.
 
 ## Built with
-- [React.js](https://reactjs.org/))
-- [Bootstrap](https://getbootstrap.com/)
-- [React Bootstrap](https://react-bootstrap.github.io/)
-- [normalize.css](http://necolas.github.io/normalize.css/)
+- [Firebase](http://firebase.google.com/)
+- [React.js](https://reactjs.org/)
+- [React Material UI](https://material-ui.com/)
+- [Node.js](https://nodejs.org/en/)
+- [Lodash](https://lodash.com/)
 
 ## Code style
 [![JS Standard][build-style-shield]][build-style-url] - https://github.com/standard/standard
@@ -53,28 +54,22 @@ Click http://book-search.danutuckersaunders.name/ to visit a live demo.
 
 Download (and unpack) or clone the repo. In the project directory, you can run:
 
-### `npm start`
+`npm install` followed by `npm start` then wait till your app loads in a browser.
 
-Runs the app in the either development or production mode for both the front-end and back-end connection<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Futute development
+- Search feature (use thecocktaildb.com search API)
+- Previous searchs (recent tab) take use of firebase
+- Update use details - update through firebase
+- Firebase related updates
+  - Add recipes 
+  - Update/remove reipes
+  - Add comments
+  - Add video
+  - Suggest new categories
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Usage 
-The primary purpose of this was to meet the requirements of a homework assignment. The major goal is to create a employee directory with React. This assignment will require me to break up the application's UI into components, manage component state, and respond to user events.
-
-## Credits 
-I created this code based on the homework prompt created by Triology Education Services. Certain pieces of code I used online resources for help. 
-
-## Contributing 
-I was the only one to work on this project, but of course I had help from my instructor, TA's, and classmates.
+## Acknowledgement
+I would like to first and more most thank thecocktaildb.com for the free version of their API to access their coctail/mocktail recipes.
+Followed by the amazing staff at Triology bootcamp program; Rachel, Rita, Agustine, Sandesh, Dyon, Vishal, and Aditya/
 
 ## License
 | Details | Author |
