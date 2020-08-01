@@ -1,6 +1,6 @@
 {
-  "name": "21-google-book-search",
-  "version": "1.0.0",
+  "name": "moody-drinks",
+  "version": "2.0.0",
   "description": "A React-based Google Books Search app. This assignment requires you to create React components, work with helper/util functions, and utilize React lifecycle methods to query and display books based on user searches. You'll also use Node, Express and MongoDB so that users can save books to review or purchase later.",
   "main": "server.js",
   "scripts": {
