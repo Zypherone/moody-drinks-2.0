@@ -165,8 +165,11 @@ export default function AnimationApp(props) {
             <Switch location={item}>
               {/* <Route exact path="/results/:type" children={<PageResults />} />
               <Route exact path="/folder/:type" children={<PageResults />} /> */}
-              <Route path="/:pagename" children={<PageResults />} />
               <Route exact path="/" children={<PageLanding />} />
+              <Route exact path="/login" children={<PageLanding />} />
+              <Route exact path="/register" children={<PageLanding />} />
+              <Route path="/:pagename" children={<PageResults />} />
+              
               {/* <Route path="*" children={<PageLanding />} /> */}
             </Switch>
           </animated.div>
