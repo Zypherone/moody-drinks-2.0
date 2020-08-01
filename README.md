@@ -49,7 +49,7 @@ Click http://moody-drinks.danutuckersaunders.name/ to visit a live demo.
 
 ---
 
-## Installationc
+## Installation and Usage
 
 Download (and unpack) or clone the repo. In the project directory, you can run:
 
