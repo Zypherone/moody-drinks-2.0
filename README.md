@@ -21,7 +21,7 @@ Moody Drinks is an app to recommend drinks depending on the user's current mood.
 - [Demo](#Demo)
 - [Built With](#Built_With)
 - [Code Style](#Code_Style)
-- [Installation and Usage](#installation_and_usage)
+- [Installation and Usage](#Installation and Usage.)
 - [Futute development](#Futute_development)
 - [Contributing](#Contributing)
 - [License](#License)
