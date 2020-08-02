@@ -1,20 +1,20 @@
-import React, { useCallback } from "react";
-import { withRouter } from "react-router";
-import app from "components/_Firebase";
+import React, { useCallback } from 'react'
+import { withRouter } from 'react-router'
+import app from 'components/_Firebase'
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
+    event.preventDefault()
+    const { email, password } = event.target.elements
     try {
       await app
         .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/");
+        .createUserWithEmailAndPassword(email.value, password.value)
+      history.push('/')
     } catch (error) {
-      alert(error);
+      alert(error)
     }
-  }, [history]);
+  }, [history])
 
   return (
     <div>
@@ -22,16 +22,16 @@ const SignUp = ({ history }) => {
       <form onSubmit={handleSignUp}>
         <label>
           Email
-          <input name="email" type="email" placeholder="Email" />
+          <input name='email' type='email' placeholder='Email' />
         </label>
         <label>
           Password
-          <input name="password" type="password" placeholder="Password" />
+          <input name='password' type='password' placeholder='Password' />
         </label>
-        <button type="submit">Sign Up</button>
+        <button type='submit'>Sign Up</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default withRouter(SignUp);
+export default withRouter(SignUp)

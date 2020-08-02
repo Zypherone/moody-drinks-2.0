@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const dirnksController = require("../../controllers/drinks");
+const router = require('express').Router()
+const dirnksController = require('../../controllers/drinks')
 
 // // Matches with "/api/books"
 // router.route("/")
@@ -9,9 +9,9 @@ const dirnksController = require("../../controllers/drinks");
 // Matches with "/api/books/:id"
 router
   // .route("/:id")
-  .route("/")
+  .route('/')
   .get(dirnksController.getRandom)
   // .put(booksController.update)
   // .delete(booksController.remove);
 
-module.exports = router;
+module.exports = router
