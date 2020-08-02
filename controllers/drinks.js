@@ -119,7 +119,7 @@ module.exports = {
         })
       )
       .then(recipes => {
-        query = SEARCH_URL + 'lookup.php?i=' + recipes[0].id
+        query = SEARCH_URL + 'lookup.php?i=' + recipes[Math.floor((Math.random() * recipes.length) + 1)].id
         axios.get(query)
           .then(recipesResults =>
             recipesResults.data.drinks
