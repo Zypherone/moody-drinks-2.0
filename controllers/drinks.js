@@ -2,6 +2,7 @@
 const axios = require('axios')
 const db = require('../models')
 const { json } = require('express')
+const _ = require('lodash')
 const SEARCH_URL = 'https://www.thecocktaildb.com/api/json/v1/1/'
 
 // Defining methods for the googleController
@@ -38,6 +39,25 @@ const cleanData = (detail) => {
   }
 
   return { id: idDrink, name: strDrink, thumb: strDrinkThumb, instructions: strInstructions, ingredients: ingredients }
+}
+
+const shuffle = array => 
+  [...Array(array.length)]
+    .map((...args) => Math.floor(Math.random() * (args[1] + 1)))
+    .reduce( (a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
+
+const getRecipeById = (id) => {
+  query = SEARCH_URL + 'lookup.php?i=' + id
+  return axios.get(query)
+  .then(recipesResults =>
+    recipesResults.data.drinks
+      .map(cleanData)
+  )
+  .then(details => {
+    return details
+    //res.json({ results: details })
+  })
+  .catch(err => res.status(422).json(err))
 }
 
 module.exports = {
@@ -119,16 +139,14 @@ module.exports = {
         })
       )
       .then(recipes => {
-        query = SEARCH_URL + 'lookup.php?i=' + recipes[Math.floor((Math.random() * recipes.length) + 1)].id
-        axios.get(query)
-          .then(recipesResults =>
-            recipesResults.data.drinks
-              .map(cleanData)
-          )
-          .then(details => {
-            res.json({ results: details })
-          })
-          .catch(err => res.status(422).json(err))
+        recipes = shuffle(recipes).slice(0,5)
+        return axios.all(
+          recipes.map(d => getRecipeById(d.id))
+        )
+        .then((d) => d.map(r => r[0]))
+      })
+      .then(details => {
+        res.json({ results: details })//[ details[0][0], details[1][0] ] })
       })
       .catch(err => res.status(422).json(err))
   }
